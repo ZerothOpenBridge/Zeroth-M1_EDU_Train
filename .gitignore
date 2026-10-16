@@ -1,0 +1,7 @@
+*.pyc
+__pycache__
+.vscode/
+.idea/
+/train.log
+/IsaacGym_Preview_4_Package/isaacgym/python/isaacgym.egg-info/
+
