@@ -4,14 +4,13 @@
   <h1 align="center">JOYIN M1 RL GYM</h1>
 </div>
   <p align="center">
-    <span> 🇨🇳中文 </span> | <a href="README_en.md"> 🌎English </a>
+    <span> 🌎English </span> | <a href="README_cn.md"> 🇨🇳中文 </a>
   </p>
 <p align="center">
-  <strong>这是一个基于 JOYNIN M1 舵机机器人的强化学习baseline仓库</strong>
+  <strong>This is a reinforcement learning baseline repository based on the JOYNIN M1 servo robot.</strong>
 </p>
 
 <div align="center">
-
 <table>
   <tr>
     <td><img src="demos/play.gif" width="620" height="400"></td>
@@ -20,25 +19,25 @@
 </table>
 </div>
 
-## 1. 环境搭建：
+## 1. Environment Setup：
 
-### 1\.1 使用 Ubuntu 20\.04 / Ubuntu 22\.04 系统 ， 安装 miniconda / Anaconda
+### 1\.1  Use Ubuntu 20.04 / Ubuntu 22.04, install Miniconda / Anaconda
 
-### 1\.2  创建一个虚拟环境
+### 1\.2  Create a virtual environment
 
 ```Plain Text
 conda create -n M1_env python=3.8
 ```
 
-### 1\.3  安装显卡驱动
+### 1\.3  Install the graphics driver
 
-可以通过，ubuntu自带的驱动更新软件，选择合适的驱动即可，建议使用525以上版本
+You can use the built-in driver update tool in Ubuntu to choose a suitable driver. Version 525 or later is recommended.
 
 ![image\.png](doc/image%204.png)
 
-### 1\.4 依赖库安装
+### 1\.4 Install dependencies
 
-#### 1\.4\.1 Clone 项目并激活环境
+#### 1\.4\.1 Clone the project and activate the environment
 
 ```Plain Text
 cd ~/
@@ -46,23 +45,22 @@ git clone https://cnb.cool/JOYIN_RL/JOYIN_MINI_GYM
 conda activate M1_env
 ```
 
-#### 1\.4\.2 安装Isaac Gym
+#### 1\.4\.2 Install Isaac Gym
 
-Isaac Gym 是归属于 Nvidia 的物理仿真环境。
+Isaac Gym is a physics simulation environment from Nvidia.
 
-从 Nvidia 官网下载 Isaac Gym：[https://developer.nvidia.com/isaac-gym/download](https://developer.nvidia.com/isaac-gym/download)
+Download Isaac Gym from the Nvidia website: [https://developer.nvidia.com/isaac-gym/download](https://developer.nvidia.com/isaac-gym/download)
 
 ```Plain Text
-# clone项目并进入到项目目录
+# Clone the project and enter the project directory
 cd ~/JOYIN_MINI_GYM/
 
-# 安装Isaac Gym
+# Install Isaac Gym
 cd IsaacGym_Preview_4_Package/isaacgym/python/
-pip install -e . -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple 
+pip install -e . -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 ```
 
-输入以下代码进行测试，如果出现窗口显示1080个球下落，则安装成功
-
+Enter the following code to test. If a window appears showing 1080 balls falling, the installation was successful.
 ```Plain Text
 cd examples
 python 1080_balls_of_solitude.py
@@ -70,98 +68,92 @@ python 1080_balls_of_solitude.py
 
 ![image\.png](doc/image.png)
 
-#### 1\.4\.3 安装 rsl\_rl
+#### 1\.4\.3 Install rsl_rl
 
 ```Plain Text
-# 进入到项目目录
+# Enter the project directory
 cd ~/JOYIN_MINI_GYM/
 
-# 安装 rsl_rl
+# Install rsl_rl
 cd rsl_rl
 pip install -e . -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 ```
 
-#### 1\.4\.4 安装 legged\_gym
+#### 1\.4\.4 Install legged\_gym
 
 ```Plain Text
-# 进入到项目目录
+# Enter the project directory
 cd ~/JOYIN_MINI_GYM/
 
-# 安装 legged_gym
+# Install legged_gym
 cd JOYIn_gym/
 pip install -e . -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 ```
 
-#### 1\.4\.4 安装 legged\_gym
+#### 1\.4\.4 Install legged\_gym
 
 ```Plain Text
-# 安装其他依赖
+# Install other dependencies
 pip install tensorboard protobuf==3.20.3 
 ```
 
-### 1\.5 训练测试
+### 1\.5 Training test
 
-输入代码，开启训练，如果出现训练日志和图像，则训练框架安装成功。
-
+Enter the code to start training. If training logs and images appear, the training framework has been installed successfully.
 ```Plain Text
-# 进入到项目目录
+# Enter the project directory
 cd ~/JOYIN_MINI_GYM/
 
 python JOYIn_gym/legged_gym/scripts/train.py --task=mini1_18dof_walk --num_envs=40
 
 ```
-
 <div align="center">
-
 <table>
   <tr>
     <td><img src="doc/image%201.png" width="620" height="400"></td>
     <td><img src="doc/image%203.png" width="620" height="400"></td>
   </tr>
 </table>
-
 </div>
 
-### 1\.6 常见错误
+### 1\.6 Common errors
 
-如果出现以下错误，是因为conda环境中没有链接python3\.8库
-
+If the following error occurs, it is because the conda environment is not linked to the python3.8 library.
 ```Plain Text
 ImportError: libpython3.8.so.1.0: cannot open shared object file: No such file or directory
 ```
 
-重新查找动态库存在路径
+Find the path where the dynamic library exists:
 
 ```Plain Text
 find / -name "libpython3.8.so.1.0" 2>/dev/null
 ```
 
-通过重新链接动态库即可解决，其中/path/to/lib为自己的动态库路径：
-
+Relink the dynamic library to resolve the issue, where /path/to/lib is your own library path:
 ```Plain Text
 export LD_LIBRARY_PATH=/path/to/lib:$LD_LIBRARY_PATH
 ```
 
-## 2. 工程结构：
+## 2.  Project Structure：
 
-### 2\.1 JOYIN\_MINI\_GYM 主要结构
+### 2\.1 Main structure of JOYIN_MINI_GYM
 
 ```Plain Text
-├── IsaacGym_Preview_4_Package   # isaacgym 目录
-├── JOYIn_gym                    # 主要工程目录
+├── IsaacGym_Preview_4_Package   # isaacgym directory
+├── JOYIn_gym                    # Main project directory
 ├── LICENSE                
 ├── README.md
-└── rsl_rl                       # 强化学习算法库
+└── rsl_rl                       # Reinforcement learning algorithm library
 ```
 
 ### 2\.2 JOYIn\_gym 主要结构
 
 ```Plain Text
-├── legged_gym                   # 主要环境配置文件
+├── legged_gym                   # Main environment configuration files
 ├── LICENSE
 ├── licenses
-├── logs                         # 训练日志存放路径
-├── resources                    # URDF存放路径，可以在里面添加自己的机器人
+├── logs                         # Training log storage path
+├── resources                    # URDF storage path, you can add your own robot here
 └── setup.py
 
 ```
@@ -169,17 +161,17 @@ export LD_LIBRARY_PATH=/path/to/lib:$LD_LIBRARY_PATH
 ### 2\.3 legged\_gym 主要结构
 
 ```Plain Text
-├── envs                         # 环境参数配置
-│   ├── base                     # 基础环境配置
+├── envs                         # Environment parameter configuration
+│   ├── base                     # Basic environment configuration
 │   ├── __init__.py
-│   ├── mini1                    # 机器人训练参数配置，从base继承
+│   ├── mini1                    # Robot training parameter configuration, inherited from base
 │   └── __pycache__
-├── __init__.py                  # 注册训练任务
+├── __init__.py                  # Register training tasks
 ├── __pycache__
 │   └── __init__.cpython-38.pyc
-├── scripts                      # 脚本存放位置
-│   ├── play.py                  # 训练脚本
-│   └── train.py                 # 回放脚本
+├── scripts                      # Script location
+│   ├── play.py                  # Playback script
+│   └── train.py                 # Training script
 └── utils
     ├── gym_math.py
     ├── helpers.py
@@ -188,73 +180,64 @@ export LD_LIBRARY_PATH=/path/to/lib:$LD_LIBRARY_PATH
     ├── math.py
     ├── __pycache__
     ├── task_registry.py
-    └── terrain.py               # 地形配置文件
+    └── terrain.py               #  Terrain configuration file
 ```
 
-## 3\.训练及部署流程：
+## 3\.Training and Deployment Process：
 
-一个完整的强化学习训练流程包含如下：调整训练参数\-\>训练\-\>回放\-\>simtosim\-\>simtoreal。
+A complete reinforcement learning training process includes: adjusting training parameters -> training -> playback -> sim2sim -> sim2real.
+### 3\.1 Adjust training parameters
 
-### 3\.1 调整训练参数
+The training parameters are stored in JOYIN_MINI_GYM/JOYIn_gym/legged_gym/envs/mini1. There are two main files:
+a\. mini\_code\.py: Training function file.
 
-训练参数存放在 JOYIN\_MINI\_GYM/JOYIn\_gym/legged\_gym/envs/mini1 中，主要有两个文件，分别是
+b\. mini\_18dof\_walk\_config\.py：Training configuration file.
 
-a\. mini\_code\.py: 训练函数文件。
+### 3\.2 Start training
 
-b\. mini\_18dof\_walk\_config\.py：训练配置文件。
-
-### 3\.2 开始训练
-
-训练脚本存放在：JOYIN\_MINI\_GYM/JOYIn\_gym/legged\_gym/scripts 中，执行以下命令开始训练：
-
+The training script is located at: JOYIN_MINI_GYM/JOYIn_gym/legged_gym/scripts. Execute the following command to start training:
 ```Plain Text
 python JOYIn_gym/legged_gym/scripts/train.py --task=mini1_18dof_walk --num_envs=4096 --headless
 ```
 
-训练脚本参数如下：
+Training script parameters:
 
 ```Plain Text
---task           # 训练任务，在envs/__init__中进行注册
---num_envs       # 环境数量
---headless       # 是否进行渲染，如果进行渲染可以按V停止渲染
---resume         # 是否从断点开始训练
---checkpoint     # 指定夹在模型文件  默认加载最新
---load_run       # 指定加载文件夹  -1 指定上次文件夹
+--task           # Training task, registered in envs/__init__
+--num_envs       # Number of environments
+--headless       # Whether to render. If rendering, press V to stop rendering
+--resume         # Whether to resume training from a checkpoint
+--checkpoint     # Specify the model file to load, loads the latest by default
+--load_run       # Specify the folder to load, -1 for the last folder
 ```
 
-通过tensorboard查看训练日志，日志存放路径 \~/JOYIN\_MINI\_GYM/JOYIn\_gym/logs/mini1\_18dof\_walk：
-
+View the training logs with TensorBoard. Log storage path: ~/JOYIN_MINI_GYM/JOYIn_gym/logs/mini1_18dof_walk:
 ```Plain Text
 tensorboard --logdir=~/JOYIN_MINI_GYM/JOYIn_gym/logs/mini1_18dof_walk --port=6008
 ```
 
-在浏览器打开本地网页  http://localhost:6008/ 即可查看
+Open the local page http://localhost:6008/ in a browser to view.
+### 3\.3 Playback to check training results
 
-### 3\.3 回放查看训练结果
-
-回放脚本存放在：JOYIN\_MINI\_GYM/JOYIn\_gym/legged\_gym/scripts 中，执行以下命令开始回放（工程会带有一个训练好的model以供测试）：
-
+The playback script is located at: JOYIN_MINI_GYM/JOYIn_gym/legged_gym/scripts. Execute the following command to start playback (the project includes a trained model for testing):
 ```Plain Text
 python JOYIn_gym/legged_gym/scripts/play.py --task=mini1_18dof_walk --num_envs=1
 ```
 
 ![image\.png](doc/image%202.png)
 
-play脚本中存在 EXPORT_POLICY 参数，当他为True时，会在log底下生成用于部署的.pt和.onnx文件。
-
+There is an EXPORT_POLICY parameter in the play script. When it is True, it will generate .pt and .onnx deployment files under the log directory.
 ### 3\.4 sim\_to\_real 
 
-sim\_to\_real 见部署工程文档
+For sim_to_real, refer to the deployment project documentation.
 
+## 4\.Acknowledgements
 
-## 4\.致谢
+The development of this repository would not have been possible without the support and contributions of the following open-source projects. Special thanks to:
+- [Isaac Gym](https://developer.nvidia.com/isaac-gym): High-performance GPU physics simulation platform.
 
-本仓库开发离不开以下开源项目的支持与贡献，特此感谢：
+- [legged\_gym](https://github.com/leggedrobotics/legged_gym): Training and running code.
 
-- [Isaac Gym](https://developer.nvidia.com/isaac-gym): 高性能GPU物理仿真平台。
-
-- [legged\_gym](https://github.com/leggedrobotics/legged_gym): 训练与运行代码。
-
-- [rsl\_rl](https://github.com/leggedrobotics/rsl_rl.git): 强化学习算法库。
+- [rsl\_rl](https://github.com/leggedrobotics/rsl_rl.git):  Reinforcement learning algorithm library.
 
 
