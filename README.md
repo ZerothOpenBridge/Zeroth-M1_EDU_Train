@@ -13,8 +13,8 @@
 <div align="center">
 <table>
   <tr>
-    <td><img src="docs/play.gif" width="620" height="400"></td>
-    <td><img src="docs/real.gif" width="620" height="400"></td>
+    <td><img src="doc/play.gif" width="620" height="400"></td>
+    <td><img src="doc/real.gif" width="620" height="400"></td>
   </tr>
 </table>
 </div>

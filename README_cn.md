@@ -14,8 +14,8 @@
 
 <table>
   <tr>
-    <td><img src="demos/play.gif" width="620" height="400"></td>
-    <td><img src="demos/real.gif" width="620" height="400"></td>
+    <td><img src="doc/play.gif" width="620" height="400"></td>
+    <td><img src="doc/real.gif" width="620" height="400"></td>
   </tr>
 </table>
 </div>
