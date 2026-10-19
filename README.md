@@ -53,7 +53,7 @@ Download Isaac Gym from the Nvidia website: [https://developer.nvidia.com/isaac-
 
 ```Plain Text
 # Clone the project and enter the project directory
-cd ~/JOYIN_MINI_GYM/
+cd ~/Zeroth-M1_EDU_Train/
 
 # Install Isaac Gym
 cd IsaacGym_Preview_4_Package/isaacgym/python/
@@ -72,7 +72,7 @@ python 1080_balls_of_solitude.py
 
 ```Plain Text
 # Enter the project directory
-cd ~/JOYIN_MINI_GYM/
+cd ~/Zeroth-M1_EDU_Train/
 
 # Install rsl_rl
 cd rsl_rl
@@ -83,7 +83,7 @@ pip install -e . -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 
 ```Plain Text
 # Enter the project directory
-cd ~/JOYIN_MINI_GYM/
+cd ~/Zeroth-M1_EDU_Train/
 
 # Install legged_gym
 cd JOYIn_gym/
@@ -102,7 +102,7 @@ pip install tensorboard protobuf==3.20.3
 Enter the code to start training. If training logs and images appear, the training framework has been installed successfully.
 ```Plain Text
 # Enter the project directory
-cd ~/JOYIN_MINI_GYM/
+cd ~/Zeroth-M1_EDU_Train/
 
 python JOYIn_gym/legged_gym/scripts/train.py --task=mini1_18dof_walk --num_envs=40
 
@@ -136,7 +136,7 @@ export LD_LIBRARY_PATH=/path/to/lib:$LD_LIBRARY_PATH
 
 ## 2.  Project Structure：
 
-### 2\.1 Main structure of JOYIN_MINI_GYM
+### 2\.1 Main structure of Zeroth-M1_EDU_Train
 
 ```Plain Text
 ├── IsaacGym_Preview_4_Package   # isaacgym directory
@@ -188,14 +188,14 @@ export LD_LIBRARY_PATH=/path/to/lib:$LD_LIBRARY_PATH
 A complete reinforcement learning training process includes: adjusting training parameters -> training -> playback -> sim2sim -> sim2real.
 ### 3\.1 Adjust training parameters
 
-The training parameters are stored in JOYIN_MINI_GYM/JOYIn_gym/legged_gym/envs/mini1. There are two main files:
+The training parameters are stored in Zeroth-M1_EDU_Train/JOYIn_gym/legged_gym/envs/mini1. There are two main files:
 a\. mini\_code\.py: Training function file.
 
 b\. mini\_18dof\_walk\_config\.py：Training configuration file.
 
 ### 3\.2 Start training
 
-The training script is located at: JOYIN_MINI_GYM/JOYIn_gym/legged_gym/scripts. Execute the following command to start training:
+The training script is located at: Zeroth-M1_EDU_Train/JOYIn_gym/legged_gym/scripts. Execute the following command to start training:
 ```Plain Text
 python JOYIn_gym/legged_gym/scripts/train.py --task=mini1_18dof_walk --num_envs=4096 --headless
 ```
@@ -211,15 +211,15 @@ Training script parameters:
 --load_run       # Specify the folder to load, -1 for the last folder
 ```
 
-View the training logs with TensorBoard. Log storage path: ~/JOYIN_MINI_GYM/JOYIn_gym/logs/mini1_18dof_walk:
+View the training logs with TensorBoard. Log storage path: ~/Zeroth-M1_EDU_Train/JOYIn_gym/logs/mini1_18dof_walk:
 ```Plain Text
-tensorboard --logdir=~/JOYIN_MINI_GYM/JOYIn_gym/logs/mini1_18dof_walk --port=6008
+tensorboard --logdir=~/Zeroth-M1_EDU_Train/JOYIn_gym/logs/mini1_18dof_walk --port=6008
 ```
 
 Open the local page http://localhost:6008/ in a browser to view.
 ### 3\.3 Playback to check training results
 
-The playback script is located at: JOYIN_MINI_GYM/JOYIn_gym/legged_gym/scripts. Execute the following command to start playback (the project includes a trained model for testing):
+The playback script is located at: Zeroth-M1_EDU_Train/JOYIn_gym/legged_gym/scripts. Execute the following command to start playback (the project includes a trained model for testing):
 ```Plain Text
 python JOYIn_gym/legged_gym/scripts/play.py --task=mini1_18dof_walk --num_envs=1
 ```
