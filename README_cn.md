@@ -54,7 +54,7 @@ Isaac Gym 是归属于 Nvidia 的物理仿真环境。
 
 ```Plain Text
 # clone项目并进入到项目目录
-cd ~/JOYIN_MINI_GYM/
+cd ~/Zeroth-M1_EDU_Train/
 
 # 安装Isaac Gym
 cd IsaacGym_Preview_4_Package/isaacgym/python/
@@ -74,7 +74,7 @@ python 1080_balls_of_solitude.py
 
 ```Plain Text
 # 进入到项目目录
-cd ~/JOYIN_MINI_GYM/
+cd ~/Zeroth-M1_EDU_Train/
 
 # 安装 rsl_rl
 cd rsl_rl
@@ -85,7 +85,7 @@ pip install -e . -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 
 ```Plain Text
 # 进入到项目目录
-cd ~/JOYIN_MINI_GYM/
+cd ~/Zeroth-M1_EDU_Train/
 
 # 安装 legged_gym
 cd JOYIn_gym/
@@ -105,7 +105,7 @@ pip install tensorboard protobuf==3.20.3
 
 ```Plain Text
 # 进入到项目目录
-cd ~/JOYIN_MINI_GYM/
+cd ~/Zeroth-M1_EDU_Train/
 
 python JOYIn_gym/legged_gym/scripts/train.py --task=mini1_18dof_walk --num_envs=40
 
@@ -144,7 +144,7 @@ export LD_LIBRARY_PATH=/path/to/lib:$LD_LIBRARY_PATH
 
 ## 2. 工程结构：
 
-### 2\.1 JOYIN\_MINI\_GYM 主要结构
+### 2\.1 Zeroth-M1\_EDU\_Train 主要结构
 
 ```Plain Text
 ├── IsaacGym_Preview_4_Package   # isaacgym 目录
@@ -225,7 +225,7 @@ python JOYIn_gym/legged_gym/scripts/train.py --task=mini1_18dof_walk --num_envs=
 通过tensorboard查看训练日志，日志存放路径 \~/JOYIN\_MINI\_GYM/JOYIn\_gym/logs/mini1\_18dof\_walk：
 
 ```Plain Text
-tensorboard --logdir=~/JOYIN_MINI_GYM/JOYIn_gym/logs/mini1_18dof_walk --port=6008
+tensorboard --logdir=~/Zeroth-M1_EDU_Train/JOYIn_gym/logs/mini1_18dof_walk --port=6008
 ```
 
 在浏览器打开本地网页  http://localhost:6008/ 即可查看
