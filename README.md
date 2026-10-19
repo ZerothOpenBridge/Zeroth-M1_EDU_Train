@@ -41,7 +41,7 @@ You can use the built-in driver update tool in Ubuntu to choose a suitable drive
 
 ```Plain Text
 cd ~/
-git clone https://cnb.cool/JOYIN_RL/JOYIN_MINI_GYM
+git clone https://github.com/ZerothOpenBridge/Zeroth-M1_EDU_Train
 conda activate M1_env
 ```
 
