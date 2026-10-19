@@ -42,7 +42,7 @@ conda create -n M1_env python=3.8
 
 ```Plain Text
 cd ~/
-git clone https://cnb.cool/JOYIN_RL/JOYIN_MINI_GYM
+git clone https://github.com/ZerothOpenBridge/Zeroth-M1_EDU_Train
 conda activate M1_env
 ```
 
